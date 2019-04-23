@@ -1,0 +1,13 @@
+{% extends 'appcartaofidelidade/base.html' %}
+
+{% block content %}
+    {% for cliente in clientes %}
+        <div class="post">
+            <div class="date">
+                <p>publicado em: {{ cliente }}</p>
+            </div>
+            <h1><a href="{% url 'cliente_detail' pk=cliente.pk %}">{{ cliente.email }}</a></h1>
+            <p>{{ cliente.estado|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

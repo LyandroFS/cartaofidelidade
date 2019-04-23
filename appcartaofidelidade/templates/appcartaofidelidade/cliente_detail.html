@@ -1,0 +1,17 @@
+{% extends 'appcartaofidelidade/base.html' %}
+
+{% block content %}
+
+        <div class="post">
+            <div class="date">
+                <p>publicado em:post {{ cliente }}</p>
+            </div>
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'cliente_edit' pk=cliente.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            {% endif %}
+            <h1><a href="{% url 'cliente_detail' pk=cliente.pk %}">{{ cliente.email }}</a></h1>
+            <p>{{ cliente.estado|linebreaksbr }}</p>
+
+        </div>
+
+{% endblock %}
